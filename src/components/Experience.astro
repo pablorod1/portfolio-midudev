@@ -1,0 +1,35 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+  {
+    date: "Actualmente",
+    title: "Desarrollador Web Senior en Tech Solutions",
+    description:
+      "Responsable del desarrollo y mantenimiento de aplicaciones web, asegurando la implementación de prácticas de codificación eficientes y escalables.",
+    link: "#",
+  },
+  {
+    date: "Marzo 2022",
+    title: "Diseñador de UI/UX en Creative Designs",
+    description:
+      "Diseño y creación de interfaces de usuario intuitivas y atractivas, garantizando una excelente experiencia de usuario en todas las plataformas.",
+  },
+  {
+    date: "Abril 2022",
+    title: "Desarrollador Frontend en Innovatech",
+    description:
+      "Implementación de componentes web interactivos utilizando Tailwind CSS y JavaScript, mejorando la funcionalidad y apariencia de sitios web.",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-2">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

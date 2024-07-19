@@ -1,0 +1,101 @@
+---
+import AngularIcon from "../icons/AngularIcon.astro";
+import CSSIcon from "../icons/CSSIcon.astro";
+import ExpressIcon from "../icons/ExpressIcon.astro";
+import HTMLIcon from "../icons/HTMLIcon.astro";
+import JSIcon from "../icons/JSIcon.astro";
+import MongoDBIcon from "../icons/MongoDBIcon.astro";
+import NodeIcon from "../icons/NodeIcon.astro";
+import TSIcon from "../icons/TSIcon.astro";
+const TAGS = {
+  NODE: {
+    name: "Node.js",
+    icon: NodeIcon
+  },
+  ANGULAR: {
+    name: "Angular",
+    icon: AngularIcon
+  },
+  TYPESCRIPT: {
+    name: "TypeScript",
+    icon: TSIcon
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    icon: JSIcon
+  },
+  MONGODB: {
+    name: "MongoDB",
+    icon: MongoDBIcon
+  },
+  HTML: {
+    name: "HTML",
+    icon: HTMLIcon
+  },
+  CSS: {
+    name: "CSS",
+    icon: CSSIcon
+  },
+};
+const PROJECTS = [
+  {
+    title: "Plantilla Angular Básica",
+    description:
+      "Desarrollé una plantilla básica con Angular que incluye funcionalidades esenciales y un diseño limpio y moderno, enfocada en el FrontEnd.",
+    link: "#",
+    github: "#",
+    image: "/projects/angular_template.webp",
+    tags: [TAGS.ANGULAR, TAGS.TYPESCRIPT, TAGS.HTML, TAGS.CSS],
+  },
+  {
+    title: "Plantilla Angular Avanzada",
+    description:
+      "Creé una plantilla avanzada con Angular, enfocada en la usabilidad y la experiencia del usuario, con múltiples web apps integradas, desarrollada completamente en el FrontEnd.",
+    link: "#",
+    github: "#",
+    image: "/projects/dashboard_template.webp",
+    tags: [TAGS.ANGULAR, TAGS.TYPESCRIPT, TAGS.HTML, TAGS.CSS],
+  },
+  {
+    title: "Negoco: Comparador de Telefonía y Energía",
+    description:
+      "Negoco es un comparador innovador de planes de telefonía y energía que permite a los usuarios encontrar las mejores ofertas disponibles en el mercado. Con una interfaz amigable y fácil de usar, Negoco ofrece filtros avanzados y datos en tiempo real para ayudar a los usuarios a tomar decisiones informadas.",
+    link: "https://negoco.vercel.app/",
+    github: "#",
+    image: "/projects/negoco.webp",
+    tags: [
+      TAGS.ANGULAR,
+      TAGS.TYPESCRIPT,
+      TAGS.NODE,
+      TAGS.MONGODB,
+      TAGS.JAVASCRIPT,
+      TAGS.HTML,
+      TAGS.CSS,
+    ],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ title, description, tags, image }) => (
+    <article class="mb-10">
+      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-2 flex-row mb-2">
+        {tags.map((tag) => (
+          <li>
+            <span class={`flex gap-x-2 rounded-full text-xs bg-white w-min px-2 py-1 text-black`}>
+              <tag.icon class="size-4" />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <img
+        class="rounded shadow-2xl shadow-white/10"
+        src={image}
+        alt={`Captura de pantalla del proyecto ${image}`}
+      />
+    </article>
+  ))
+}
